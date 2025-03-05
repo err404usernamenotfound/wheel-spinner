@@ -21,14 +21,13 @@ export default class WheelConfig {
     this.title = '';
     this.description = '';
     this.entries = [
-      {text: 'Ali'},
-      {text: 'Beatriz'},
-      {text: 'Charles'},
-      {text: 'Diya'},
-      {text: 'Eric'},
-      {text: 'Fatima'},
-      {text: 'Gabriel'},
-      {text: 'Hanna'},
+      {text: 'Anton'},
+      {text: 'Carl'},
+      {text: 'Deniel'},
+      {text: 'Ian'},
+      {text: 'Jayson'},
+      {text: 'Kyla'},
+      {text: 'Rouen'},
     ];
     this.colorSettings = [
       {color: '#3369E8', enabled: true},
