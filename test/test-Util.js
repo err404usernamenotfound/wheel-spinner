@@ -492,7 +492,7 @@ describe('Util', function() {
       const html = '<div>Anton</div><div>Carl</div><div>Deniel</div>' +
                    '<div>Ian</div><div>Jayson</div><div>Kyla</div>' +
                    '<div><div><img src="data:image/png;base64,image1" style="height:25px"></div>' +
-                   'Rouen</div><div>Hanna</div><div><br></div>';
+                   'Rouen</div><div>Rouen</div><div><br></div>';
       const entries = [
         {text: 'Anton'},
         {text: 'Carl'},
@@ -501,8 +501,7 @@ describe('Util', function() {
         {text: 'Jayson'},
         {text: 'Kyla'},
         {image: 'data:image/png;base64,image1'},
-        {text: 'Rouen'},
-        {text: 'Hanna'}
+        {text: 'Rouen'}
       ];
       assert.deepEqual(Util.getEntriesFromHtml(html), entries);
     })
