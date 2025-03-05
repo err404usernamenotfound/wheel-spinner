@@ -132,7 +132,7 @@ module.exports = {
     new CopyWebpackPlugin({patterns: [
       { from: './static/third_party', to: 'third_party' },
       { from: './static/manifest.json', to: '.' },
-      { from: './static/images/favicon.ico', to: '.' }
+      { from: './static/images/favicon cbzn.ico', to: '.' }
     ]}),
     new GenerateSW({
       exclude: [
