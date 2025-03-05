@@ -22,38 +22,38 @@ describe('WheelConfig', function() {
     it('returns default names', function() {
       const wc = new WheelConfig();
       assert.deepStrictEqual(wc.getTexts(),
-        ['Ali', 'Beatriz', 'Charles', 'Diya', 'Eric', 'Fatima', 'Gabriel', 'Hanna']
+        ['Anton', 'Carl', 'Deniel', 'Ian', 'Jayson', 'Kyla', 'Rouen']
       );
     })
     it('returns only text entries', function() {
       const wc = new WheelConfig();
       wc.entries[0] = {image: 'xyz'};
       assert.deepStrictEqual(wc.getTexts(),
-        ['Beatriz', 'Charles', 'Diya', 'Eric', 'Fatima', 'Gabriel', 'Hanna']
+        ['Carl', 'Deniel', 'Ian', 'Jayson', 'Kyla', 'Rouen']
       );
     })
     it('returns only non-empty text entries', function() {
       const wc = new WheelConfig();
       wc.entries[0] = {text: ''};
       assert.deepStrictEqual(wc.getTexts(),
-        ['Beatriz', 'Charles', 'Diya', 'Eric', 'Fatima', 'Gabriel', 'Hanna']
+        ['Carl', 'Deniel', 'Ian', 'Jayson', 'Kyla', 'Rouen']
       );
     })
   })
   describe('#getFirstText()', function() {
     it('returns the first entry text if first entry has text', function() {
       const wc = new WheelConfig();
-      assert.deepStrictEqual(wc.getFirstText(), 'Ali');
+      assert.deepStrictEqual(wc.getFirstText(), 'Anton');
     })
     it('returns the second entry text if first entry text is empty', function() {
       const wc = new WheelConfig();
       wc.entries[0] = {text: ''};
-      assert.deepStrictEqual(wc.getFirstText(), 'Beatriz');
+      assert.deepStrictEqual(wc.getFirstText(), 'Carl');
     })
     it('returns the second entry text if first entry has no text prop', function() {
       const wc = new WheelConfig();
       delete wc.entries[0].text;
-      assert.deepStrictEqual(wc.getFirstText(), 'Beatriz');
+      assert.deepStrictEqual(wc.getFirstText(), 'Carl');
     })
     it('returns empty string if no entries have text props', function() {
       const wc = new WheelConfig();

@@ -432,86 +432,86 @@ describe('Util', function() {
   })
   describe('#getEntriesFromHtml()', function() {
     it('should return text entries in <div> elements, ignoring <br>, <span...>, <div...>', function() {
-      const html = '<div>Ali</div>' +
-        '<div><span style="color:#ddd">Beatriz</span></div>' +
-        '<div>Charles<br></div>' +
-        '<div><div style="user-select: auto;">Diya</div></div>';
+      const html = '<div>Anton</div>' +
+        '<div><span style="color:#ddd">Carl</span></div>' +
+        '<div>Deniel<br></div>' +
+        '<div><div style="user-select: auto;">Ian</div></div>';
       const entries = [
-        {text: 'Ali'},
-        {text: 'Beatriz'},
-        {text: 'Charles'},
-        {text: 'Diya'}
+        {text: 'Anton'},
+        {text: 'Carl'},
+        {text: 'Deniel'},
+        {text: 'Ian'}
       ];
       assert.deepEqual(Util.getEntriesFromHtml(html), entries);
     })
     it('should decode encoded HTML tags', function() {
-      const html = '<div>&lt;b&gt;Ali&lt;/b&gt;</div>' +
-        '<div>Beatriz</div>' +
-        '<div>Charles<br></div>';
+      const html = '<div>&lt;b&gt;Anton&lt;/b&gt;</div>' +
+        '<div>Carl</div>' +
+        '<div>Deniel<br></div>';
       const entries = [
-        {text: '<b>Ali</b>'},
-        {text: 'Beatriz'},
-        {text: 'Charles'}
+        {text: '<b>Anton</b>'},
+        {text: 'Carl'},
+        {text: 'Deniel'}
       ];
       assert.deepEqual(Util.getEntriesFromHtml(html), entries);
     })
     it('should return text entries in <p> elements, ignoring <br> and <span...>', function() {
-      const html = '<p>Ali</p>' +
-        '<p><span style="color:#ddd">Beatriz</span></p>' +
-        '<p>Charles<br></p>';
+      const html = '<p>Anton</p>' +
+        '<p><span style="color:#ddd">Carl</span></p>' +
+        '<p>Deniel<br></p>';
       const entries = [
-        {text: 'Ali'},
-        {text: 'Beatriz'},
-        {text: 'Charles'}
+        {text: 'Anton'},
+        {text: 'Carl'},
+        {text: 'Deniel'}
       ];
       assert.deepEqual(Util.getEntriesFromHtml(html), entries);
     })
     it('should return text entries in <div> elements, ignoring <br...>', function() {
-      const html = '<div>Ali</div>' +
-        '<div>Beatriz<br style="user-select: auto;"></div>' +
-        '<div>Charles<br></div>';
+      const html = '<div>Anton</div>' +
+        '<div>Carl<br style="user-select: auto;"></div>' +
+        '<div>Deniel<br></div>';
       const entries = [
-        {text: 'Ali'},
-        {text: 'Beatriz'},
-        {text: 'Charles'}
+        {text: 'Anton'},
+        {text: 'Carl'},
+        {text: 'Deniel'}
       ];
       assert.deepEqual(Util.getEntriesFromHtml(html), entries);
     })
     it('should return text and image entries in <div> elements', function() {
-      const html = '<div>Ali<img src="data:image/jpeg;base64,image1" style="font-family: BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif; font-size: 1rem; height: 25px;"></div>' +
-        '<div>Beatriz</div>' +
+      const html = '<div>Anton<img src="data:image/jpeg;base64,image1" style="font-family: BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif; font-size: 1rem; height: 25px;"></div>' +
+        '<div>Carl</div>' +
         '<div><img src="data:image/png;base64,image2" style="font-family: BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif; font-size: 1rem; height: 25px;"></div>';
       const entries = [
-        {text: 'Ali', image: 'data:image/jpeg;base64,image1'},
-        {text: 'Beatriz'},
+        {text: 'Anton', image: 'data:image/jpeg;base64,image1'},
+        {text: 'Carl'},
         {image: 'data:image/png;base64,image2'}
       ];
       assert.deepEqual(Util.getEntriesFromHtml(html), entries);
     })
     it('should not return HTML when <div> elements are nested in Firefox', function() {
-      const html = '<div>Ali</div><div>Beatriz</div><div>Charles</div>' +
-                   '<div>Diya</div><div>Eric</div><div>Fatima</div>' +
+      const html = '<div>Anton</div><div>Carl</div><div>Deniel</div>' +
+                   '<div>Ian</div><div>Jayson</div><div>Kyla</div>' +
                    '<div><div><img src="data:image/png;base64,image1" style="height:25px"></div>' +
-                   'Gabriel</div><div>Hanna</div><div><br></div>';
+                   'Rouen</div><div>Hanna</div><div><br></div>';
       const entries = [
-        {text: 'Ali'},
-        {text: 'Beatriz'},
-        {text: 'Charles'},
-        {text: 'Diya'},
-        {text: 'Eric'},
-        {text: 'Fatima'},
+        {text: 'Anton'},
+        {text: 'Carl'},
+        {text: 'Deniel'},
+        {text: 'Ian'},
+        {text: 'Jayson'},
+        {text: 'Kyla'},
         {image: 'data:image/png;base64,image1'},
-        {text: 'Gabriel'},
+        {text: 'Rouen'},
         {text: 'Hanna'}
       ];
       assert.deepEqual(Util.getEntriesFromHtml(html), entries);
     })
     it('should not return HTML comments', function() {
-      const html = '<div><!-- StartFragment -->Ali<!-- EndFragment --></div>' +
-                   '<div>Beatriz</div>';
+      const html = '<div><!-- StartFragment -->Anton<!-- EndFragment --></div>' +
+                   '<div>Carl</div>';
       const entries = [
-        {text: 'Ali'},
-        {text: 'Beatriz'},
+        {text: 'Anton'},
+        {text: 'Carl'},
       ];
       assert.deepEqual(Util.getEntriesFromHtml(html), entries);
     })
